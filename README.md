@@ -1,53 +1,101 @@
 Blinkit Business Analytics Project
 
-Customer Insights | Feedback Analysis | Inventory Optimization
+Customer Insights | Feedback Intelligence | Inventory Optimization
 
 Project Overview
 
-This project focuses on analyzing key operational and customer data from Blinkit to generate actionable business insights. The analysis is divided into three major domains: Customer Data, Customer Feedback, and Inventory Management.
+This project analyzes operational and customer data from Blinkit to generate meaningful business insights across three core areas: Customer Analytics, Customer Feedback Analysis, and Inventory Management.
 
-The objective of this project is to understand customer behavior, evaluate service quality, and monitor inventory efficiency. By cleaning, validating, and analyzing structured datasets, this project demonstrates how raw operational data can be transformed into meaningful performance indicators and decision-support insights.
+The objective is to transform structured raw datasets into performance metrics and decision-support dashboards. The analysis focuses on customer behavior, service quality measurement, and operational efficiency monitoring.
 
-1. Customer Analytics
+Through systematic data cleaning, validation, transformation, and visualization, this project demonstrates end-to-end business analytics implementation using Excel.
 
-The customer dataset contains demographic and transactional summary information for registered users. This data helps in understanding purchasing behavior, customer segmentation, and revenue contribution.
+Dataset Overview
 
-Dataset Description
+The project consists of three primary datasets:
 
-Each customer record includes identification details, contact information, geographic information, registration date, customer segment classification, total orders placed, and average order value.
+Customer Dataset
 
-Key Business Metrics
+Customer Feedback Dataset
 
-Total Revenue (calculated as total_orders × avg_order_value)
+Inventory Dataset
 
-Revenue contribution by customer segment
+Each dataset serves a distinct analytical purpose and contributes to overall business performance tracking.
 
-Customer distribution by segment
+1. Customer Dataset
+Description
 
-Average order value by segment
+This dataset contains customer demographic details, geographic information, and summarized transaction metrics. It supports revenue analysis, segmentation, and customer lifecycle evaluation.
 
-Top customers by revenue
+Business Objectives
 
-Customer acquisition trend based on registration date
+Identify high-value customers
 
-Business Purpose
+Evaluate revenue contribution by segment
 
-This analysis helps identify high-value customers, inactive users, and growth opportunities across regions. Segment-level insights support targeted marketing strategies and retention planning.
+Track customer acquisition trends
 
-2. Customer Feedback Analysis
+Analyze geographic distribution
 
-The feedback dataset captures customer ratings, written feedback, feedback category, and sentiment classification. This dataset is used to measure customer satisfaction and identify operational pain points.
+Data Dictionary – Customer Dataset
+Column Name	Description	Data Type	Business Purpose
+customer_id	Unique identifier for each customer	Numeric	Primary key for customer tracking
+customer_name	Full name of the customer	Text	Identification
+email	Customer email address	Text	Communication
+phone	Full phone number including country code	Text	Contact
+country_code	Extracted country dialing code	Numeric/Text	Standardization
+phone_number	10-digit mobile number	Numeric/Text	Clean contact record
+address	Customer residential address	Text	Geographic analysis
+area	City/Region name	Text	Regional performance tracking
+pincode	Postal code	Numeric	Location accuracy
+registration_date	Date customer registered	Date	Acquisition trend analysis
+customer_segment	Segment classification (Premium, Regular, New, Inactive)	Text	Targeted marketing
+total_orders	Total number of orders placed	Numeric	Frequency analysis
+avg_order_value	Average value per order	Numeric	Spending behavior
+Derived Metrics
 
-Rating and Sentiment Structure
+Total Revenue = total_orders × avg_order_value
 
-Ratings are mapped as follows:
+Revenue by Segment
+
+Average Order Value by Segment
+
+Top Customers by Revenue
+
+2. Customer Feedback Dataset
+Description
+
+This dataset captures customer satisfaction ratings, qualitative feedback, categorized issues, and sentiment classification.
+
+Business Objectives
+
+Measure customer satisfaction
+
+Identify service improvement areas
+
+Track complaint categories
+
+Monitor sentiment trends
+
+Data Dictionary – Feedback Dataset
+Column Name	Description	Data Type	Business Purpose
+feedback_id	Unique feedback identifier	Numeric	Primary key
+order_id	Order associated with feedback	Numeric	Transaction linkage
+customer_id	Linked customer identifier	Numeric	Customer-level analysis
+rating	Numerical rating (1–5)	Numeric	Satisfaction measurement
+feedback_text	Customer comment	Text	Qualitative analysis
+feedback_category	Type of issue (Delivery, App Experience, Product Quality, Customer Service)	Text	Root cause analysis
+sentiment	Derived sentiment label	Text	Satisfaction classification
+feedback_date	Date feedback submitted	Date	Trend analysis
+Rating Mapping
+
 1 – Bad
 2 – Average
 3 – Neutral
 4 – Very Good
 5 – Excellent
 
-For reporting purposes, ratings are grouped into sentiment buckets:
+Sentiment Buckets
 
 Positive (4–5)
 
@@ -55,66 +103,65 @@ Neutral (3)
 
 Negative (1–2)
 
-Key Insights Generated
+Key Metrics
 
-Overall customer satisfaction percentage
+Customer Satisfaction Rate
 
-Sentiment distribution
+Sentiment Distribution
 
-Category-wise complaint analysis (Delivery, App Experience, Product Quality, Customer Service)
+Category-wise Complaint Percentage
 
-Identification of recurring issues
+Monthly Rating Trends
 
-Feedback trends over time
+3. Inventory Dataset
+Description
 
-Business Purpose
+This dataset tracks product-level stock intake and damaged stock quantities. It supports quality control and operational efficiency monitoring.
 
-This analysis helps identify service gaps, monitor product quality issues, and improve operational efficiency. Sentiment tracking enables management to take corrective actions based on customer voice.
+Business Objectives
 
-3. Inventory and Damage Analysis
+Reduce damaged inventory
 
-The inventory dataset tracks stock received and damaged stock quantities for products. This analysis supports operational quality control and loss reduction.
+Monitor supplier performance
 
-Key Metric
+Improve logistics handling
+
+Track operational loss
+
+Data Dictionary – Inventory Dataset
+Column Name	Description	Data Type	Business Purpose
+product_id	Unique product identifier	Numeric	Product tracking
+date	Stock entry date	Date	Time-based tracking
+stock_received	Quantity received	Numeric	Inventory tracking
+damaged_stock	Quantity damaged	Numeric	Loss measurement
+Derived Metric
 
 Damage Percentage = (damaged_stock / stock_received) × 100
 
-Validation rules ensure that damaged stock does not exceed received stock.
+Validation Rule:
+damaged_stock must not exceed stock_received
 
-Insights Derived
+Data Cleaning and Standardization
 
-Overall damage rate
+The following data preparation steps were performed:
 
-Product-level damage tracking
+Converted text fields to proper case
 
-Identification of high-loss inventory
+Cleaned and standardized address formatting
 
-Operational efficiency measurement
-
-Business Purpose
-
-Monitoring damage percentage helps reduce wastage, improve supplier quality control, and optimize logistics handling processes.
-
-Data Cleaning and Validation Performed
-
-Standardized text fields to proper case
-
-Cleaned address formatting and removed line breaks
+Removed line breaks from address entries
 
 Split phone number into country code and mobile number
 
-Validated phone number structure
+Validated phone number format
 
-Standardized sentiment classification based on rating
+Standardized sentiment labels based on rating
 
 Flagged invalid inventory records
 
-Created derived metrics such as Revenue and Damage %
+Created revenue and damage percentage metrics
 
 Dashboard Structure
-
-The final dashboard is structured into the following sections:
-
 KPI Overview
 
 Total Customers
@@ -131,28 +178,30 @@ Overall Damage Percentage
 
 Customer Analytics
 
-Segment performance
+Segment-wise Revenue
 
-Revenue by segment
+Customer Distribution
 
-Top customers
+Top Customers
 
-Feedback Insights
+Registration Trends
 
-Sentiment distribution
+Feedback Analysis
 
-Category-wise issues
+Sentiment Distribution
 
-Monthly feedback trends
+Category-wise Issues
 
-Inventory Analysis
+Rating Trends Over Time
 
-Damage percentage trends
+Inventory Monitoring
 
-High damage products
+Damage Percentage
 
-Stock vs damaged comparison
+High-Damage Products
+
+Stock vs Damaged Comparison
 
 Conclusion
 
-This project demonstrates the complete lifecycle of business data analysis — from cleaning and validation to KPI development and insight generation. By integrating customer behavior analysis, sentiment tracking, and inventory monitoring, the project provides a comprehensive operational overview that can support data-driven decision-making in an e-commerce environment.
+This project demonstrates comprehensive business data analysis across customer performance, service quality, and operational efficiency. By integrating customer behavior insights, structured sentiment analysis, and inventory monitoring, the project provides a holistic view of business performance and supports data-driven strategic decision-making.
