@@ -1,0 +1,12 @@
+SUM of stock_received,SUM of damaged_stock
+147526,80268
+,
+,
+damaged_stock>stock_recieved,COUNT of product_id
+FALSE,45917
+TRUE,29255
+,
+,COUNT of product_id
+High,11723
+No damage,63449
+Grand Total,75172

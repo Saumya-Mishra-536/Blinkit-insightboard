@@ -1,0 +1,18 @@
+customer_segment,SUM of total_orders
+Inactive,6346
+New,6829
+Premium,6448
+Regular,6598
+,
+customer_segment,REVENUE by segment
+Inactive,4191307844
+New,4788816651
+Premium,4489152859
+Regular,4593325965
+,
+,
+customer_segment,AVERAGE of avg_order_value
+Inactive,1102.61
+New,1116.64
+Premium,1101.60
+Regular,1089.47
