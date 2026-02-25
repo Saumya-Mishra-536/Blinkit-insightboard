@@ -205,5 +205,12 @@ Stock vs Damaged Comparison
 Conclusion
 
 This project demonstrates comprehensive business data analysis across customer performance, service quality, and operational efficiency. By integrating customer behavior insights, structured sentiment analysis, and inventory monitoring, the project provides a holistic view of business performance and supports data-driven strategic decision-making.
+Looker:
+Dashboard1: https://lookerstudio.google.com/embed/reporting/c0edb5d3-e2f3-47b1-ac47-48a23cd9d900/page/page_12345
+
+
+Dashboard2: 
+
+Dashboard3: https://lookerstudio.google.com/reporting/545b506c-1370-44fc-87d3-7e5c92b3ddb3/page/aNBqF
 
 
