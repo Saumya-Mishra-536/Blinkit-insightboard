@@ -1,216 +1,239 @@
-Blinkit Business Analytics Project
+# Blinkit Business Analytics Project
 
-Customer Insights | Feedback Intelligence | Inventory Optimization
+**Customer Insights | Feedback Intelligence | Inventory Optimization**
 
-Project Overview
+---
 
-This project analyzes operational and customer data from Blinkit to generate meaningful business insights across three core areas: Customer Analytics, Customer Feedback Analysis, and Inventory Management.
+## 📌 Project Overview
 
-The objective is to transform structured raw datasets into performance metrics and decision-support dashboards. The analysis focuses on customer behavior, service quality measurement, and operational efficiency monitoring.
+This project analyzes operational and customer datasets from Blinkit to generate meaningful business insights across three core domains:
 
-Through systematic data cleaning, validation, transformation, and visualization, this project demonstrates end-to-end business analytics implementation using Excel.
+* Customer Analytics
+* Customer Feedback Analysis
+* Inventory Management
 
-Dataset Overview
+The objective is to transform structured raw datasets into actionable KPIs and decision-support dashboards. The project demonstrates end-to-end business analytics implementation using Excel, including data cleaning, validation, transformation, and visualization.
 
-The project consists of three primary datasets:
+---
 
-Customer Dataset
+## 🎯 Business Objectives
 
-Customer Feedback Dataset
+### Customer Analytics
 
-Inventory Dataset
+* Identify high-value customers
+* Evaluate revenue contribution by segment
+* Track customer acquisition trends
+* Analyze geographic distribution
 
-Each dataset serves a distinct analytical purpose and contributes to overall business performance tracking.
+### Feedback Intelligence
 
-1. Customer Dataset
-Description
+* Measure customer satisfaction
+* Identify service improvement areas
+* Track complaint categories
+* Monitor sentiment trends
 
-This dataset contains customer demographic details, geographic information, and summarized transaction metrics. It supports revenue analysis, segmentation, and customer lifecycle evaluation.
+### Inventory Optimization
 
-Business Objectives
+* Reduce damaged inventory
+* Monitor supplier performance
+* Improve logistics handling
+* Track operational losses
 
-Identify high-value customers
+---
 
-Evaluate revenue contribution by segment
+## 📊 Dataset Documentation
 
-Track customer acquisition trends
+---
 
-Analyze geographic distribution
+# 1️⃣ Customer Dataset
 
-Data Dictionary – Customer Dataset
-Column Name	Description	Data Type	Business Purpose
-customer_id	Unique identifier for each customer	Numeric	Primary key for customer tracking
-customer_name	Full name of the customer	Text	Identification
-email	Customer email address	Text	Communication
-phone	Full phone number including country code	Text	Contact
-country_code	Extracted country dialing code	Numeric/Text	Standardization
-phone_number	10-digit mobile number	Numeric/Text	Clean contact record
-address	Customer residential address	Text	Geographic analysis
-area	City/Region name	Text	Regional performance tracking
-pincode	Postal code	Numeric	Location accuracy
-registration_date	Date customer registered	Date	Acquisition trend analysis
-customer_segment	Segment classification (Premium, Regular, New, Inactive)	Text	Targeted marketing
-total_orders	Total number of orders placed	Numeric	Frequency analysis
-avg_order_value	Average value per order	Numeric	Spending behavior
-Derived Metrics
+### 📌 Dataset Description
 
-Total Revenue = total_orders × avg_order_value
+Contains demographic, geographic, and transaction summary data used for revenue analysis, segmentation, and lifecycle evaluation.
 
-Revenue by Segment
+---
 
-Average Order Value by Segment
+### 📌 Key Fields
 
-Top Customers by Revenue
+| Field Name        | Description                         | Data Type    | Business Purpose              |
+| ----------------- | ----------------------------------- | ------------ | ----------------------------- |
+| customer_id       | Unique identifier for each customer | Numeric      | Customer tracking             |
+| customer_name     | Customer full name                  | Text         | Identification                |
+| email             | Customer email address              | Text         | Communication                 |
+| phone             | Full phone number                   | Text         | Contact record                |
+| country_code      | Extracted dialing code              | Text/Numeric | Standardization               |
+| phone_number      | 10-digit mobile number              | Text/Numeric | Clean contact record          |
+| address           | Customer residential address        | Text         | Geographic analysis           |
+| area              | City/Region name                    | Text         | Regional performance tracking |
+| pincode           | Postal code                         | Numeric      | Location accuracy             |
+| registration_date | Date customer registered            | Date         | Acquisition trend analysis    |
+| customer_segment  | Segment classification              | Text         | Targeted marketing            |
+| total_orders      | Total number of orders placed       | Numeric      | Frequency analysis            |
+| avg_order_value   | Average order value                 | Numeric      | Spending behavior             |
 
-2. Customer Feedback Dataset
-Description
+---
 
-This dataset captures customer satisfaction ratings, qualitative feedback, categorized issues, and sentiment classification.
+### 📊 Derived Metrics
 
-Business Objectives
+| Metric Name                    | Formula                              | Business Use                       |
+| ------------------------------ | ------------------------------------ | ---------------------------------- |
+| Total Revenue                  | total_orders × avg_order_value       | Revenue contribution analysis      |
+| Revenue by Segment             | SUM(revenue) grouped by segment      | Segment profitability              |
+| Average Order Value by Segment | AVG(avg_order_value) by segment      | Spending behavior analysis         |
+| Top Customers                  | Rank customers by revenue            | High-value customer identification |
+| Customer Acquisition Trend     | COUNT customers by registration_date | Growth monitoring                  |
 
-Measure customer satisfaction
+---
 
-Identify service improvement areas
+# 2️⃣ Customer Feedback Dataset
 
-Track complaint categories
+### 📌 Dataset Description
 
-Monitor sentiment trends
+Captures ratings, qualitative feedback, categorized issues, and sentiment classification for customer experience monitoring.
 
-Data Dictionary – Feedback Dataset
-Column Name	Description	Data Type	Business Purpose
-feedback_id	Unique feedback identifier	Numeric	Primary key
-order_id	Order associated with feedback	Numeric	Transaction linkage
-customer_id	Linked customer identifier	Numeric	Customer-level analysis
-rating	Numerical rating (1–5)	Numeric	Satisfaction measurement
-feedback_text	Customer comment	Text	Qualitative analysis
-feedback_category	Type of issue (Delivery, App Experience, Product Quality, Customer Service)	Text	Root cause analysis
-sentiment	Derived sentiment label	Text	Satisfaction classification
-feedback_date	Date feedback submitted	Date	Trend analysis
-Rating Mapping
+---
 
-1 – Bad
-2 – Average
-3 – Neutral
-4 – Very Good
-5 – Excellent
+### 📌 Key Fields
 
-Sentiment Buckets
+| Field Name        | Description                    | Data Type | Business Purpose            |
+| ----------------- | ------------------------------ | --------- | --------------------------- |
+| feedback_id       | Unique feedback identifier     | Numeric   | Record tracking             |
+| order_id          | Order associated with feedback | Numeric   | Transaction linkage         |
+| customer_id       | Linked customer identifier     | Numeric   | Customer-level analysis     |
+| rating            | Numerical rating (1–5)         | Numeric   | Satisfaction measurement    |
+| feedback_text     | Customer comment               | Text      | Qualitative insight         |
+| feedback_category | Issue category                 | Text      | Root cause analysis         |
+| sentiment         | Sentiment classification       | Text      | Satisfaction classification |
+| feedback_date     | Date feedback submitted        | Date      | Trend analysis              |
 
-Positive (4–5)
+---
 
-Neutral (3)
+### 📊 Derived Metrics
 
-Negative (1–2)
+| Metric Name                | Formula                                | Business Use                 |
+| -------------------------- | -------------------------------------- | ---------------------------- |
+| Customer Satisfaction Rate | % of ratings ≥ 4                       | Satisfaction measurement     |
+| Sentiment Distribution     | COUNT feedback by sentiment            | Experience monitoring        |
+| Complaint % by Category    | Category complaints / total complaints | Issue prioritization         |
+| Monthly Rating Trend       | AVG rating by month                    | Service improvement tracking |
+| Negative Feedback Rate     | Ratings ≤ 2 / total feedback           | Risk detection               |
 
-Key Metrics
+---
 
-Customer Satisfaction Rate
+# 3️⃣ Inventory Dataset
 
-Sentiment Distribution
+### 📌 Dataset Description
 
-Category-wise Complaint Percentage
+Tracks product-level stock intake and damaged stock quantities for operational efficiency and loss monitoring.
 
-Monthly Rating Trends
+---
 
-3. Inventory Dataset
-Description
+### 📌 Key Fields
 
-This dataset tracks product-level stock intake and damaged stock quantities. It supports quality control and operational efficiency monitoring.
+| Field Name     | Description               | Data Type | Business Purpose      |
+| -------------- | ------------------------- | --------- | --------------------- |
+| product_id     | Unique product identifier | Numeric   | Product tracking      |
+| date           | Stock entry date          | Date      | Time-based monitoring |
+| stock_received | Quantity received         | Numeric   | Inventory tracking    |
+| damaged_stock  | Quantity damaged          | Numeric   | Loss measurement      |
 
-Business Objectives
+---
 
-Reduce damaged inventory
+### 📊 Derived Metrics
 
-Monitor supplier performance
+| Metric Name          | Formula                                | Business Use                 |
+| -------------------- | -------------------------------------- | ---------------------------- |
+| Damage Percentage    | (damaged_stock / stock_received) × 100 | Loss tracking                |
+| Total Damaged Units  | SUM(damaged_stock)                     | Operational loss measurement |
+| High-Damage Products | Rank by damage %                       | Quality improvement          |
+| Inventory Efficiency | 100 − Damage %                         | Operational performance      |
+| Validation Flag      | damaged_stock ≤ stock_received         | Data quality control         |
 
-Improve logistics handling
+---
 
-Track operational loss
+## 🧹 Data Cleaning & Standardization
 
-Data Dictionary – Inventory Dataset
-Column Name	Description	Data Type	Business Purpose
-product_id	Unique product identifier	Numeric	Product tracking
-date	Stock entry date	Date	Time-based tracking
-stock_received	Quantity received	Numeric	Inventory tracking
-damaged_stock	Quantity damaged	Numeric	Loss measurement
-Derived Metric
+* Converted text fields to proper case
+* Standardized address formatting
+* Removed line breaks from address entries
+* Split phone number into country code and mobile number
+* Validated phone number format
+* Standardized sentiment labels using rating rules
+* Flagged invalid inventory records
+* Created revenue and damage percentage metrics
 
-Damage Percentage = (damaged_stock / stock_received) × 100
+---
 
-Validation Rule:
-damaged_stock must not exceed stock_received
+## 📈 Dashboard Structure
 
-Data Cleaning and Standardization
+### KPI Overview
 
-The following data preparation steps were performed:
+* Total Customers
+* Total Revenue
+* Total Orders
+* Average Order Value
+* Customer Satisfaction Rate
+* Overall Damage Percentage
 
-Converted text fields to proper case
+### Customer Analytics Dashboard
 
-Cleaned and standardized address formatting
+* Segment-wise Revenue
+* Customer Distribution
+* Top Customers
+* Registration Trends
 
-Removed line breaks from address entries
+### Feedback Dashboard
 
-Split phone number into country code and mobile number
+* Sentiment Distribution
+* Category-wise Issues
+* Rating Trends Over Time
 
-Validated phone number format
+### Inventory Dashboard
 
-Standardized sentiment labels based on rating
+* Damage Percentage
+* High-Damage Products
+* Stock vs Damaged Comparison
 
-Flagged invalid inventory records
+---
 
-Created revenue and damage percentage metrics
+## 🔗 Looker Studio Dashboards
 
-Dashboard Structure
-KPI Overview
+* Dashboard 1: https://lookerstudio.google.com/embed/reporting/c0edb5d3-e2f3-47b1-ac47-48a23cd9d900/page/page_12345
+<img src="/Users/saumyamishra/PEP/Blinkit-insightboard/Images/Db1.png" width="900">
+* Dashboard 2: https://lookerstudio.google.com/reporting/f370c2d0-90f4-4ff2-91ab-8a9fc374e4d3/page/page_12345/edit
+<img src="/Users/saumyamishra/PEP/Blinkit-insightboard/Images/Db2.png" width="900">
+* Dashboard 3: https://lookerstudio.google.com/reporting/545b506c-1370-44fc-87d3-7e5c92b3ddb3/page/aNBqF
+<img src="/Users/saumyamishra/PEP/Blinkit-insightboard/Images/Db3.png" width="900">
+---
 
-Total Customers
+## 🛠 Tools & Technologies
 
-Total Revenue
+* Microsoft Excel
+* Looker Studio
+* Data Cleaning & Validation
+* KPI Development
+* Dashboard Design
+* Business Analytics Framework
 
-Total Orders
+---
 
-Average Order Value
+## 💡 Key Insights Generated
 
-Customer Satisfaction Rate
+* Premium customers contribute the highest revenue share
+* Delivery issues dominate negative feedback
+* Positive sentiment correlates with repeat purchases
+* Damaged inventory highlights logistics improvement opportunities
 
-Overall Damage Percentage
+---
 
-Customer Analytics
+## ✅ Conclusion
 
-Segment-wise Revenue
+This project demonstrates comprehensive business analytics across customer performance, service quality, and operational efficiency. By integrating customer behavior insights, structured sentiment analysis, and inventory monitoring, the project provides a holistic view of business performance and supports data-driven strategic decision-making.
 
-Customer Distribution
+---
 
-Top Customers
+## 👤 Author
 
-Registration Trends
+Saumya Mishra
 
-Feedback Analysis
-
-Sentiment Distribution
-
-Category-wise Issues
-
-Rating Trends Over Time
-
-Inventory Monitoring
-
-Damage Percentage
-
-High-Damage Products
-
-Stock vs Damaged Comparison
-
-Conclusion
-
-This project demonstrates comprehensive business data analysis across customer performance, service quality, and operational efficiency. By integrating customer behavior insights, structured sentiment analysis, and inventory monitoring, the project provides a holistic view of business performance and supports data-driven strategic decision-making.
-Looker:
-Dashboard1: https://lookerstudio.google.com/embed/reporting/c0edb5d3-e2f3-47b1-ac47-48a23cd9d900/page/page_12345
-
-
-Dashboard2: https://lookerstudio.google.com/reporting/f370c2d0-90f4-4ff2-91ab-8a9fc374e4d3/page/page_12345/edit
-
-Dashboard3: https://lookerstudio.google.com/reporting/545b506c-1370-44fc-87d3-7e5c92b3ddb3/page/aNBqF
-
-
+---
